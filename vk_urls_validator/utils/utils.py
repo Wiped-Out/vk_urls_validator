@@ -3,7 +3,7 @@ from typing import List, Optional
 from vk_urls_validator.utils import exceptions
 import string
 
-ALLOWED_CHARACTERS = string.digits + string.ascii_uppercase + string.ascii_lowercase + '.'
+ALLOWED_CHARACTERS = string.digits + string.ascii_uppercase + string.ascii_lowercase + '._'
 
 
 def get_hostname(hostname: str, hostnames: List[str]) -> Optional[str]:
