@@ -34,7 +34,6 @@ def test_host_replacement(input_url: str, expected_url: str):
             ('https://vk.com/hello_',),
             ('https://vk.com/some_long_usernameeeeeeeeeeeeeeeeeee',),
             ('https://vk.com/shrt',),
-            ('https://vk.com/incorrect_with_.dot', ),
     )
 )
 def test_invalid_urls(input_url: str):

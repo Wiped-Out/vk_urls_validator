@@ -46,14 +46,6 @@ def validate_hash(url: str, url_hash: str) -> Optional[str]:
         if url_hash[i] not in ALLOWED_CHARACTERS:
             raise exceptions.VKInvalidHashError(url=url)
 
-        if url_hash[i] == '.':
-            if len(url_hash[i:]) < 4:
-                raise exceptions.VKInvalidHashError(url=url)
-
-            if not (url_hash[i + 1].isalpha() and url_hash[i + 2].isalpha() and url_hash[i + 3].isalpha() and url_hash[
-                i + 4].isalpha()):
-                raise exceptions.VKInvalidHashError(url=url)
-
     characters = set(url_hash)
     if characters.discard(set(ALLOWED_CHARACTERS)):
         raise exceptions.VKInvalidHashError(url=url)
