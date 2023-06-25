@@ -33,21 +33,23 @@ def validate_hash(url: str, url_hash: str) -> Optional[str]:
     if url_hash.startswith('club') and url_hash[5:].isnumeric():
         return url_hash
 
-    if not 5 <= len(url_hash) <= 32:
-        raise exceptions.VKInvalidHashError(url=url)
-
-    if url_hash[:3].isnumeric():
-        raise exceptions.VKInvalidHashError(url=url)
-
-    if url_hash.startswith('_') or url_hash.endswith('_'):
-        raise exceptions.VKInvalidHashError(url=url)
-
-    for i in range(len(url_hash)):
-        if url_hash[i] not in ALLOWED_CHARACTERS:
-            raise exceptions.VKInvalidHashError(url=url)
-
-    characters = set(url_hash)
-    if characters.discard(set(ALLOWED_CHARACTERS)):
-        raise exceptions.VKInvalidHashError(url=url)
-
     return url_hash
+
+    # if not 5 <= len(url_hash) <= 32:
+    #     raise exceptions.VKInvalidHashError(url=url)
+    #
+    # if url_hash[:3].isnumeric():
+    #     raise exceptions.VKInvalidHashError(url=url)
+    #
+    # if url_hash.startswith('_') or url_hash.endswith('_'):
+    #     raise exceptions.VKInvalidHashError(url=url)
+    #
+    # for i in range(len(url_hash)):
+    #     if url_hash[i] not in ALLOWED_CHARACTERS:
+    #         raise exceptions.VKInvalidHashError(url=url)
+    #
+    # characters = set(url_hash)
+    # if characters.discard(set(ALLOWED_CHARACTERS)):
+    #     raise exceptions.VKInvalidHashError(url=url)
+    #
+    # return url_hash
